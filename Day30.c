@@ -1,5 +1,7 @@
-Q59: Count Even and Odd Numbersc#include <stdio.h>
+Q59: Count Even and Odd Numbers
 Code:
+
+#include <stdio.h>
 
 void countEvenOdd(int arr[], int size) {
     int evenCount = 0;
@@ -23,8 +25,11 @@ int main() {
     return 0;
 }
 
-Q60: Count Positive, Negative, and Zero Elementsc#include <stdio.h>
+
+Q60: Count Positive, Negative, and Zero Elements
 Code:
+
+#include <stdio.h>
 
 void countElements(int arr[], int size) {
     int positiveCount = 0;
