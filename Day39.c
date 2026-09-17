@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main() {
-    int n, i, j, distinct = 1;
+    int n, i, j, sum = 0;
     int a[10][10];
 
     scanf("%d %d", &n, &j);
@@ -13,18 +13,10 @@ int main() {
     }
 
     for(i = 0; i < n; i++) {
-        for(j = i + 1; j < n; j++) {
-            if(a[i][i] == a[j][j]) {
-                distinct = 0;
-                break;
-            }
-        }
+        sum += a[i][i];
     }
 
-    if(distinct)
-        printf("True");
-    else
-        printf("False");
+    printf("%d", sum);
 
     return 0;
 }
