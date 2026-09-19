@@ -7,10 +7,9 @@ int main() {
     scanf("%s", str);
 
     while(str[i] != '\0') {
+        printf("%c\n", str[i]);
         i++;
     }
-
-    printf("%d", i);
 
     return 0;
 }
