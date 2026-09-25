@@ -3,29 +3,37 @@
 
 int main()
 {
-    char a[100], b[100];
-    int count[256] = {0};
-    int i;
+    char str[100], word[100], longest[100];
+    int i = 0, j = 0;
 
-    scanf("%s", a);
-    scanf("%s", b);
+    gets(str);
 
-    for(i = 0; a[i] != '\0'; i++)
-        count[a[i]]++;
-
-    for(i = 0; b[i] != '\0'; i++)
-        count[b[i]]--;
-
-    for(i = 0; i < 256; i++)
+    while(str[i] != '\0')
     {
-        if(count[i] != 0)
+        if(str[i] != ' ')
         {
-            printf("Not anagrams");
-            return 0;
+            word[j] = str[i];
+            j++;
         }
+        else
+        {
+            word[j] = '\0';
+
+            if(strlen(word) > strlen(longest))
+                strcpy(longest, word);
+
+            j = 0;
+        }
+
+        i++;
     }
 
-    printf("Anagrams");
+    word[j] = '\0';
+
+    if(strlen(word) > strlen(longest))
+        strcpy(longest, word);
+
+    printf("%s", longest);
 
     return 0;
 }
