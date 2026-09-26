@@ -2,23 +2,31 @@
 #include <string.h>
 
 int main() {
-    char str1[100], str2[100], temp[200];
+    char str[200];
+    int i, start = 0, end;
 
-    scanf("%s", str1);
-    scanf("%s", str2);
+    fgets(str, sizeof(str), stdin);
 
-    if (strlen(str1) != strlen(str2)) {
-        printf("Not rotation");
-        return 0;
+    int len = strlen(str);
+
+    for (i = 0; i <= len; i++) {
+        if (str[i] == ' ' || str[i] == '\n' || str[i] == '\0') {
+            end = i - 1;
+
+            while (start < end) {
+                char temp = str[start];
+                str[start] = str[end];
+                str[end] = temp;
+
+                start++;
+                end--;
+            }
+
+            start = i + 1;
+        }
     }
 
-    strcpy(temp, str1);
-    strcat(temp, str1);
-
-    if (strstr(temp, str2))
-        printf("Rotation");
-    else
-        printf("Not rotation");
+    printf("%s", str);
 
     return 0;
 }
