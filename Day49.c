@@ -1,11 +1,11 @@
 #include <stdio.h>
 
 int main() {
-    char first[20], last[20];
+    char first[20], middle[20], last[20];
 
-    scanf("%s %s", first, last);
+    scanf("%s %s %s", first, middle, last);
 
-    printf("%c.%c.", first[0], last[0]);
+    printf("%c.%c. %s", first[0], middle[0], last);
 
     return 0;
 }
