@@ -1,13 +1,23 @@
 #include <stdio.h>
+#include <string.h>
 
 int main() {
-    int day, month, year;
-    char *months[] = {"Jan", "Feb", "Mar", "Apr", "May", "Jun",
-                      "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+    char str[100];
+    int i, j, k, n;
 
-    scanf("%d/%d/%d", &day, &month, &year);
+    scanf("%s", str);
+    n = strlen(str);
 
-    printf("%02d-%s-%d", day, months[month - 1], year);
+    for (i = 0; i < n; i++) {
+        for (j = i; j < n; j++) {
+            for (k = i; k <= j; k++) {
+                printf("%c", str[k]);
+            }
+
+            if (!(i == n - 1 && j == n - 1))
+                printf(",");
+        }
+    }
 
     return 0;
 }
