@@ -1,34 +1,29 @@
 #include <stdio.h>
 
-int main()
-{
-    int n, i;
-    int total, leftSum, rightSum;
-
-    // Take input
+int main() {
+    int n;
     scanf("%d", &n);
 
-    // Sum of numbers from 1 to n
-    total = n * (n + 1) / 2;
+    int nums[n];
 
-    leftSum = 0;
+    for (int i = 0; i < n; i++) {
+        scanf("%d", &nums[i]);
+    }
 
-    // Check every possible pivot
-    for (i = 1; i <= n; i++)
-    {
-        leftSum = leftSum + i;
+    for (int i = 0; i < n; i++) {
+        int count = 0;
 
-        // Sum from i to n
-        rightSum = total - leftSum + i;
+        for (int j = 0; j < n; j++) {
+            if (nums[i] == nums[j])
+                count++;
+        }
 
-        if (leftSum == rightSum)
-        {
-            printf("%d", i);
+        if (count > n / 2) {
+            printf("%d", nums[i]);
             return 0;
         }
     }
 
-    // If no pivot exists
     printf("-1");
 
     return 0;
